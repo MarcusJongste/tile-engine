@@ -1,0 +1,16 @@
+.tile, .gameobject, .objectcontainer {
+    /*calculate layer z*/
+    --negrotation: calc(var(--rotation) - 90deg);
+    --zindexy: calc(var(--y) * sin(var(--maprotation)) * 10);
+    --zindexx: calc(var(--x) * cos(var(--negrotation)) * 10);
+    --zindex: calc(var(--zindexx) + var(--zindexy) + 1000); /*+1000 so that the z-index remains decently in the positive*/
+}
+.texture, .tile {
+    z-index: var(--zindex);
+}
+.gameobject {
+    z-index: calc(var(--zindex) + 5);
+}
+.undertile {
+    z-index: calc(var(--zindex) - 1);
+}

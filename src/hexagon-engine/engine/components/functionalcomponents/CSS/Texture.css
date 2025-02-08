@@ -1,0 +1,45 @@
+.texture {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.tile > .texture > .textureframe {
+    width: var(--twidth);
+    height: var(--twidth);
+    left: 50%;
+    top: 50%;
+    --offsetrot: calc(132.5 * tan(var(--rotation)) / 78.75);
+    --offsety: calc(var(--rotationpy) - var(--offsetrot));
+    --rotationDiff: asin(var(--rotationpy));
+    /*--isometrictilerot: calc(var(--tilerotation) - 45deg);
+    --isometricoffsetindex: max(var(--isometrictilerot) / 45 * 15,var(--isometrictilerot) / 45 * -15);
+    --isometricoffset: calc( 7.5deg - var(--isometricoffsetindex));*/
+    --orienationdeg: calc(var(--orienation) * 1deg);
+    /*need a parabolic function which adjusts --orienation based on 45 degree of --tilerotation 0 1 0*/
+    transform: translate(-50%,-50%) rotate(atan(var(--offsetrot))); /*calc(var(--orienationdeg) + var(--isometricoffset)));*/
+}
+
+.undertile > .texture > .textureframe {
+    width: 100%;
+    height: 100%;
+
+}
+
+.textureframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*---------------------------------------------------------------------*/
+    /*-------------Calculation for which angle texture---------------------*/
+    /*---------------------------------------------------------------------*/
+    /* get all the rotation added up */
+    --orienation: calc(var(--orientationoffset) + var(--numrotation) + var(--objectdirection) + var(--objectrotation));
+    /* round off the orienation to 1 of the step sizes*/
+    --roundanglestep: round(up,var(--orienation),calc(360 / var(--step)));
+    /* get amount from the top by dividing */
+    --anglestep: calc(var(--roundanglestep) / 360);
+    /* multiply anglestep with current top */
+    --angletop: calc(var(--top) * var(--anglestep) * var(--step));
+    background-position-y: calc(var(--angletop) * 100%);
+}

@@ -1,0 +1,15 @@
+
+.tile {
+    --rotationoffset: 0deg;
+    position: absolute;
+    display: block;
+    overflow: visible;
+    width: var(--twidth);
+    height: var(--theight);
+}
+
+.undertile {
+    position: absolute;
+    width: 100%;
+    height: var(--localheight);
+}

@@ -1,0 +1,36 @@
+.icon > .icontext.left {
+    float:left;
+    transform: translate(0,50%);
+}
+.icon > .icontext.top {
+    transform: translate(-50%,0);
+    left: 50%;
+    top: -100%;
+}
+.icon > .icontext.right {
+    float:right;
+    transform:translate(0,50%);
+}
+.icon > .icontext.bottom {
+    transform: translate(-50%,0);
+    left:50%;
+    bottom: -100%;
+}
+.icontext{
+    position:relative;
+    display:block;
+
+}
+.icon > .texture {
+    position:relative;
+    display:inline-block;
+    width: var(--iconsize);
+    height: var(--iconsize);
+}
+.icon {
+    position: absolute;
+    z-index:calc(var(--y) + 10);
+}
+.icon.inline{
+    display:inline-block;
+}

@@ -1,0 +1,5 @@
+.gameobject {
+    position: absolute;
+    width: calc(var(--twidth) * var(--width));
+    height: calc(var(--theight) * var(--height));
+}

@@ -1,0 +1,9 @@
+export const topleft = 'topleft';
+export const topcentre = 'topcentre';
+export const topright = 'topright';
+export const centreleft = 'centreleft';
+export const centre = 'centre';
+export const centreright = 'centreright';
+export const bottomleft = 'bottomleft';
+export const bottomcentre = 'bottomcentre';
+export const bottomright = 'bottomright';

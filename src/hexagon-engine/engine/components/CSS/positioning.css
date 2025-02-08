@@ -1,0 +1,37 @@
+/*global positioning*/
+.tile, .gameobject, .objectcontainer,.ui {
+    /*map rotation is rotation + 60 or 90 deg*/
+    --maprotation: calc(var(--rotation) + var(--rowrotation) );
+    /*calculate element height with z*/
+    --rady: calc(var(--theight) / 2);
+    --zheight: calc(var(--z) * var(--rady));
+    --localheight: calc(var(--theight) + var(--zheight));
+    /*add space*/
+    --fullwidth: calc(var(--twidth) + var(--space));
+    --fullheight: calc(var(--theight) + var(--space)); /*all is calculated by 1 standard*/
+    /*calc line and map position (column and row)*/
+    --linex: calc(cos(var(--rotation)) * var(--fullwidth) * var(--shapedeviation));
+    --liney: calc(sin(var(--rotation)) * var(--fullheight) * var(--shapedeviation));
+    --mapx: calc(cos(var(--maprotation)) * var(--fullwidth) * var(--shapedeviation));
+    --mapy: calc(sin(var(--maprotation)) * var(--fullheight) * var(--shapedeviation));
+}
+.objectcontainer {
+    /*calculate camerafocus position*/
+    --camleft: calc(var(--linex) * var(--x) + var(--mapx) * var(--y));
+    --camtop: calc(var(--liney) * var(--x) + var(--mapy) * var(--y));
+    left: calc(var(--camxoffset) - var(--camleft));
+    top: calc(var(--camyoffset) - var(--camtop));
+}
+.gameobject {
+    --translatey: calc(var(--cp) * -100%);
+    transform: translate(-50%,var(--translatey)); /*lowest point (x centre) should be the point set*/
+
+}
+.tile {
+    transform: translate(-50%,-50%); /*center point of hexagon should be at location*/
+ 
+}
+.gameobject, .tile, .ui {
+    left: calc(var(--linex) * var(--x) + var(--mapx) * var(--y));
+    top: calc(var(--liney) * var(--x) + var(--mapy) * var(--y) - var(--localheight));
+}

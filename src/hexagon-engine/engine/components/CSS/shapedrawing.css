@@ -1,0 +1,70 @@
+.square > .objectcontainer > .tile {
+    --point1angle: calc(var(--tilerotation) + 45deg);
+    --point2angle: calc(var(--tilerotation) + 135deg);
+    --point3angle: calc(var(--tilerotation) + 225deg);
+    --point4angle: calc(var(--tilerotation) + 315deg);
+    /*get radius*/
+    --radx: calc(var(--twidth) / 2);
+    --rady: calc(var(--theight) / 2);
+    /*create point coords*/
+    --hp1x: calc(cos(var(--point1angle)) * var(--radx) + var(--radx));
+    --hp1y: calc(sin(var(--point1angle)) * var(--rady) + var(--rady));
+    --hp2x: calc(cos(var(--point2angle)) * var(--radx) + var(--radx));
+    --hp2y: calc(sin(var(--point2angle)) * var(--rady) + var(--rady));
+    --hp3x: calc(cos(var(--point3angle)) * var(--radx) + var(--radx));
+    --hp3y: calc(sin(var(--point3angle)) * var(--rady) + var(--rady));
+    --hp4x: calc(cos(var(--point4angle)) * var(--radx) + var(--radx));
+    --hp4y: calc(sin(var(--point4angle)) * var(--rady) + var(--rady));
+    --uhp1y: calc(var(--hp1y) + var(--z) * var(--rady));
+    --uhp2y: calc(var(--hp2y) + var(--z) * var(--rady));
+    --uhp4y: calc(var(--hp4y) + var(--z) * var(--rady));
+}
+.square > .objectcontainer > .tile > .texture {
+    clip-path: polygon(var(--hp1x) var(--hp1y),var(--hp2x) var(--hp2y),var(--hp3x) var(--hp3y),var(--hp4x) var(--hp4y))
+}
+
+    .square > .objectcontainer > .tile > .undertile > .texture {
+        clip-path: polygon(var(--hp1x) var(--uhp1y),var(--hp2x) var(--uhp2y),var(--hp2x) var(--hp2y),var(--hp3x) var(--hp3y),var(--hp4x) var(--hp4y),var(--hp4x) var(--uhp4y))
+    }
+.hexagon > .objectcontainer > .tile {
+    /*calc angles*/
+    --point1angle: calc(var(--tilerotation) + 30deg);
+    --point2angle: calc(var(--tilerotation) + 90deg);
+    --point3angle: calc(var(--tilerotation) + 150deg);
+    --point4angle: calc(var(--tilerotation) + 210deg);
+    --point5angle: calc(var(--tilerotation) + 270deg);
+    --point6angle: calc(var(--tilerotation) + 330deg);
+    /*get radius*/
+    --radx: calc(var(--twidth) / 2);
+    --rady: calc(var(--theight) / 2);
+    /*create point coords*/
+    --hp1x: calc(cos(var(--point1angle)) * var(--radx) + var(--radx));
+    --hp1y: calc(sin(var(--point1angle)) * var(--rady) + var(--rady));
+    --hp2x: calc(cos(var(--point2angle)) * var(--radx) + var(--radx));
+    --hp2y: calc(sin(var(--point2angle)) * var(--rady) + var(--rady));
+    --hp3x: calc(cos(var(--point3angle)) * var(--radx) + var(--radx));
+    --hp3y: calc(sin(var(--point3angle)) * var(--rady) + var(--rady));
+    --hp4x: calc(cos(var(--point4angle)) * var(--radx) + var(--radx));
+    --hp4y: calc(sin(var(--point4angle)) * var(--rady) + var(--rady));
+    --hp5x: calc(cos(var(--point5angle)) * var(--radx) + var(--radx));
+    --hp5y: calc(sin(var(--point5angle)) * var(--rady) + var(--rady));
+    --hp6x: calc(cos(var(--point6angle)) * var(--radx) + var(--radx));
+    --hp6y: calc(sin(var(--point6angle)) * var(--rady) + var(--rady));
+
+    /*coords for undertile*/
+    --uhp1y: calc(var(--hp1y) + var(--z) * var(--rady));
+    --uhp2y: calc(var(--hp2y) + var(--z) * var(--rady));
+    --uhp3y: calc(var(--hp3y) + var(--z) * var(--rady));
+    --uhp6y: calc(var(--hp6y) + var(--z) * var(--rady));
+}
+.hexagon > .objectcontainer > .tile > .texture {
+    clip-path: polygon(var(--hp1x) var(--hp1y),var(--hp2x) var(--hp2y),var(--hp3x) var(--hp3y),var(--hp4x) var(--hp4y),var(--hp5x) var(--hp5y),var(--hp6x) var(--hp6y))
+}
+    .hexagon > .objectcontainer > .tile > .undertile > .texture {
+        clip-path: polygon(var(--hp1x) var(--uhp1y),var(--hp2x) var(--uhp2y),var(--hp3x) var(--uhp3y),var(--hp3x) var(--hp3y),var(--hp4x) var(--hp4y),var(--hp5x) var(--hp5y),var(--hp6x) var(--hp6y),var(--hp6x) var(--uhp6y))
+    }
+.tile{
+        /*calculate point on circle for rotation, this is used to calculate non isometric texture rotation*/
+    --rotationpx: calc(cos(var(--rotation)) * var(--radx));
+    --rotationpy: calc(sin(var(--rotation)) * var(--rady) + var(--rady));
+}

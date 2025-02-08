@@ -1,0 +1,10 @@
+export const tiles = {};
+export const gameobjects = {};
+export const userinterfaces = {};
+export const textures = {};
+export const phases = {};
+export const paths = {}
+export const levels = {};
+export const actions = {};
+export const simpleactions = {};
+export const texts = {};
