@@ -1,8 +1,20 @@
-**Tile-Engine**
+**Tile-Engine**(work in progress)
 -------------------------------------------------
-A tile based game engine, will be able to create a isometric level, with tiles adjustable for height.
+A browser based game engine built with React.
+Because it's built with native React it should work in all browsers and even phone/tablet.
 
+The engine itself will be able to make games in isometric or top view, 
+in isometric you an assign height difference in the tiles.
+![generic functionality gif](https://github.com/MarcusJongste/tile-engine/blob/master/Readme/zoom%20rotate%20isometric.gif)
+The Game objects/characters are made using sprite sheets, and can contain animations from multiple angles.
+![character gif](https://github.com/MarcusJongste/tile-engine/blob/master/Readme/animations.gif)
+The finished product should be a site where people can create and from which they can easily share their creations.
+It should be easy to create games with visual programming, allowing most effort to go into the graphics and dialog.
 
+The visual programming will work that you can create simple actions like move and put them inside an action in the order you would like them to be executed.
+
+These actions can then be assigned to events e.a.:click, falling, tile enter,....
+![gameplay](https://github.com/MarcusJongste/tile-engine/blob/master/Readme/gameplay.gif)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
